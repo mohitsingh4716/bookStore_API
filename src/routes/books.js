@@ -25,6 +25,31 @@ router.get("/", async (req, res) => {
 });
 
 
+router.get("/search", async (req, res) => {
+  try {
+    const { genre } = req.query;
+    if (!genre) {
+      return res.status(400).json({ error: "Genre query parameter is required" });
+    }
+
+    const books = await readJSON("books.json");
+    const filteredBooks = books.filter(b =>
+      b.genre.toLowerCase().includes(genre.toLowerCase())
+    );
+
+    // console.log("Filtered Books:", filteredBooks);
+
+    res.json({
+      books: filteredBooks,
+      total: filteredBooks.length,
+    });
+  } catch (error) {
+    console.error("Error filtering books by genre:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;

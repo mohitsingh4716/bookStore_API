@@ -13,6 +13,10 @@ npm run dev
 ```
 
 Make sure `.env` is properly configured with JWT secret values.
+```
+JWT_SECRET="YOUR_SECRET_KEY",
+PORT=3000
+```
 
 ## STEP 1: User Authentication
 
@@ -122,6 +126,17 @@ Authorization: Bearer YOUR_JWT_TOKEN
   ```http
   Authorization: Bearer YOUR_JWT_TOKEN
   ```
+
+
+### 2.6 Search Books by Genre
+
+- **Method:** GET
+- **URL:** `/api/v1/books/search?genre={GENRE}`
+- **Headers:**
+  ```http
+  Authorization: Bearer YOUR_JWT_TOKEN
+
+
 
 ## STEP 3: Error Testing
 

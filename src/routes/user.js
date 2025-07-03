@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/register", async (req, res) => {
   try {
     const body = req.body;
-    console.log("Register attempt:", { email: body.email, name: body.name });
+    // console.log("Register attempt:", { email: body.email, name: body.name });
 
     const { success, error } = signupInput.safeParse(body);
 
@@ -73,7 +73,7 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const body = req.body;
-    console.log("Login attempt:", { email: body.email });
+    // console.log("Login attempt:", { email: body.email });
 
     const { success, error } = signinInput.safeParse(body);
 
